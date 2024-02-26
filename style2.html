@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id="submit">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student result</title>
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    <style>
+        body{
+            height: 100%;
+            width: 100%;
+            background:linear-gradient(rgba(0,0,50,0.8),rgba(0,0,50,0.8));
+        }
+        .section{
+            border:2px solid black;
+            text-align: center;
+            margin-top: 100px;
+            margin-left: 10%;
+            margin-right: 10%;
+            padding: 10px;
+            height: 520px;
+            background-color:rgb(195, 228, 230);
+            border-radius: 20px;
+            box-shadow: 0px 0px 25px #fff;
+
+        }
+        .section-bar{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .form-table{
+            margin-top: 50px;
+        }
+        .head{
+            font-size: 40px;
+            color: red;
+            text-transform: capitalize;
+            font-weight: bold;
+            margin-top: 70px;
+            text-shadow: 0 0 12px rgb(219, 158, 168);
+        }
+        .form-number{
+            margin: 10px 0px;
+            width: 260px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 0px;
+            font-weight: bold;
+            text-transform: capitalize;
+            box-shadow: 0px 0px 12px red;
+        }
+        #total{
+            margin: 10px;
+            width:100px;
+            margin-top: 40px;
+            background-color: #fff;
+        }
+        #total:hover{
+            width: 100px;
+            background-color: red;
+            transition: 0.5s;
+        }
+            
+        #paragraph{
+            color: #000;
+            font-weight: bold;
+            font-size: 18px;
+
+        }
+        #pdf{
+            width: 100px;
+            background-color: #fff;
+            color: #000;
+            text-decoration: none;
+            
+        }
+        #pdf:hover{
+            background-color: red;
+            transition: 0.5s;
+        }
+        
+        
+        
+
+    </style>
+</head>
+<body>
+    <form action="style.html">
+    <div class="section">
+        <div class="section-bar">
+            <div class="head">
+                Students Are Now <br>Check Result Here
+            </div>
+            <div class="form-table">
+                <div class="form-row">
+                    <input type="text" placeholder="Marks in web-designing" class="form-number" id="web">
+                </div>
+                <div class="form-row">
+                    <input type="text" placeholder="Marks in computer" class="form-number" id="comp">
+                </div>
+                <div class="form-row">
+                    <input type="text" placeholder="Marks in math" class="form-number" id="math">
+                </div>
+                <div class="form-row">
+                    <input type="text" placeholder="Marks in english" class="form-number" id="english">
+                </div>
+                <div class="form-row">
+                    <input type="text" placeholder="Marks in hindi" class="form-number" id="hindi">
+                </div>
+                <div class="form-row">
+                    <input type="button" value="get result" class="form-number" onclick="caluculate()" id="total">
+                    <a href="images/Document 2.pdf" download class="form-number" id="pdf"><i class="fa-solid fa-download"></i>Download as PDF </a>
+                </div>
+                
+            </div>            
+
+        </div>
+        <div class="para">
+            <p id="paragraph"></p>
+
+        </div>
+
+    </div>
+</form>
+    
+
+    <script>
+        let caluculate=()=>{
+            let web=document.getElementById('web').value
+            let comp=document.getElementById('comp').value
+            let math=document.getElementById('math').value
+            let english=document.getElementById('english').value
+            let hindi=document.getElementById('hindi').value
+            
+            let total=parseFloat(web)+parseFloat(comp)+parseFloat(math)+parseFloat(english)+parseFloat(hindi);
+            let per=(total/500)*100;
+
+            document.getElementById('paragraph').innerHTML='Out of 500 your total mark is '+total+' <br>and Percentage is '+per+'%';
+        }
+        </script>
+    
+</body>
+</html>
